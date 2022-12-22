@@ -1,0 +1,27 @@
+services:
+  weba:
+    build: .
+    # volumes:
+    #   - mysql-data-A:/var/lib/mysql
+    depends_on:
+      - mysql
+        # condition: service_healthy
+
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - mysql-data-A:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: pwd
+      MYSQL_DATABASE: databaseA
+    command: ["mysqld", "--default-authentication-plugin=mysql_native_password"]
+    # healthcheck:
+    #   test: ["CMD-SHELL", "curl chmod +x ./wait.sh "]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 5
+
+volumes:
+  mysql-data-A:
