@@ -1,0 +1,20 @@
+services:
+  master:
+    build: ./master
+    volumes:
+      - master-volume:/*
+
+  client:
+    build: ./client
+    volumes:
+      - client-volume:/*
+    # healthcheck:
+    #   test: ["CMD-SHELL", "curl chmod +x ./wait.sh "]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 5
+
+volumes:
+  master-volume:
+
+  client-volume:
