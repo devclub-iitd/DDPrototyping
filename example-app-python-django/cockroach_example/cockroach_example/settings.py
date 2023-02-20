@@ -74,18 +74,30 @@ WSGI_APPLICATION = 'cockroach_example.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+        # 'ENGINE': 'django_cockroachdb',
+        # 'NAME': 'defaultdb',
+        # 'USER': 'root',
+        # 'PASSWORD': '',
+        # 'HOST': 'host.docker.internal',
+        # 'PORT': os.environ.get('DB_PORT', '26257'),
+        # 'OPTIONS': {
+        #     'sslmode': 'disable',
+        #     'options': '--cluster={routing-id}',
+        #     'application_name': 'docs_simplecrud_django'
+        # },
     'default': {
-        'ENGINE': 'django_cockroachdb',
-        'NAME': 'defaultdb',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'defaultdb',                      
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'host.docker.internal',
-        'PORT': '26257',
+        'PORT': os.environ.get('DB_PORT', '26257'),
         'OPTIONS': {
             'sslmode': 'disable',
             'options': '--cluster={routing-id}',
             'application_name': 'docs_simplecrud_django'
-        },
+        },  
     },
 }
 
