@@ -15,6 +15,7 @@ WORKDIR /master
 # COPY ./requirements.txt requirements.txt
 RUN apt-get update && \
   apt-get install dos2unix && \
+  apt-get install -y postgresql-client && \  
   rm -f /var/cache/apk/*
 COPY cockroach_example ./cockroach_example
 COPY requirements.txt ./

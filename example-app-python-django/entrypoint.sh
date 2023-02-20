@@ -8,13 +8,14 @@
 # done
 # echo "Mysql is up - executing command"
 
-until psql -U $DB_USER -h $DB_HOST -d $DB_NAME -p $DB_PORT -c "SELECT 1" >/dev/null 2>&1; do
-    echo "PostgreSQL is unavailable - sleeping"
-    sleep 5
-done
+# until psql "postgresql://host.docker.internal@roach1:26257?sslmode=disable" -c '\q' >/dev/null 2>&1; do
+#     echo "PostgreSQL is unavailable - sleeping"
+#     sleep 5
+# done
+
+sleep 10
 
 echo "PostgreSQL is up - executing command"
-
 
 python ./cockroach_example/manage.py runserver 0.0.0.0:8080
 

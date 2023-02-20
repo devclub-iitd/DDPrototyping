@@ -88,11 +88,11 @@ DATABASES = {
         # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'defaultdb',                      
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'host.docker.internal',
-        'PORT': os.environ.get('DB_PORT', '26257'),
+        'NAME': os.environ.get('DB_NAME'),                      
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PORT'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
         'OPTIONS': {
             'sslmode': 'disable',
             'options': '--cluster={routing-id}',
