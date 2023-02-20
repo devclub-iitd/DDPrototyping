@@ -8,12 +8,10 @@
 # done
 # echo "Mysql is up - executing command"
 
-# until psql "postgresql://host.docker.internal@roach1:26257?sslmode=disable" -c '\q' >/dev/null 2>&1; do
-#     echo "PostgreSQL is unavailable - sleeping"
-#     sleep 5
-# done
-
-sleep 10
+until psql -U $DB_USER -h $DB_HOST -d $DB_NAME -p $DB_PORT -c "SELECT 1" >/dev/null 2>&1; do
+    echo "PostgreSQL is unavailable - sleeping"
+    sleep 5
+done
 
 echo "PostgreSQL is up - executing command"
 
