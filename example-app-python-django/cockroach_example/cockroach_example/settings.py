@@ -93,11 +93,11 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PORT'),
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT'),
-        'OPTIONS': {
-            'sslmode': 'disable',
-            'options': '--cluster={routing-id}',
-            'application_name': 'docs_simplecrud_django'
-        },  
+        # 'OPTIONS': {
+        #     'sslmode': 'disable',
+        #     'options': '--cluster={routing-id}',
+        #     'application_name': 'docs_simplecrud_django'
+        # },  
     },
 }
 
