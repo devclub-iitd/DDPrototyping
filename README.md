@@ -9,10 +9,12 @@ A repository to prototype a distributed storage setting for our production serve
 ### Docker Compose
 
 1) Install the CockroachDB Docker Image.
-2) Run `docker-compose build` followed by `docker-compose up` in 'example-app-python-django' directory to start the CockroachDB Cluster of 3 containers and the Django app in a separate container.\
+2) Use this format to target a docker compose file `docker-compose -f <filename> <up|build>`.
+3) Run `docker-compose build` followed by `docker-compose up` in the above format on the 5 docker-compose files in 'example-app-python-django' directory to start the CockroachDB Cluster of 3 containers and two identical Django web apps in separate containers.
+
 **Note**: The docker compose does not run the command in point (3) of the manual docker commands. Run the command once after using `docker compose up` for the first time.
 
-### Manual Docker Commands
+### Manual Docker Commands (Old Method)
 
 The django app added above is configured to run with a local cluster of CockroachDB.
 The instructions to run the app in Windows are specified below:
