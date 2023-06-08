@@ -15,6 +15,8 @@ done
 
 echo "PostgreSQL is up - executing command"
 
+python ./cockroach_example/manage.py makemigrations cockroach_example
+python ./cockroach_example/manage.py migrate
 python ./cockroach_example/manage.py runserver 0.0.0.0:8080
 
 sleep infinity

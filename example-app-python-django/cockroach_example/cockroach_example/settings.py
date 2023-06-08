@@ -74,25 +74,25 @@ WSGI_APPLICATION = 'cockroach_example.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django_cockroachdb',
-        # 'NAME': 'defaultdb',
-        # 'USER': 'root',
-        # 'PASSWORD': '',
-        # 'HOST': 'host.docker.internal',
-        # 'PORT': os.environ.get('DB_PORT', '26257'),
+    'default': {
+        'ENGINE': 'django_cockroachdb',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
         # 'OPTIONS': {
         #     'sslmode': 'disable',
         #     'options': '--cluster={routing-id}',
         #     'application_name': 'docs_simplecrud_django'
         # },
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),                      
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PORT'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': os.environ.get('DB_NAME'),                      
+    #     'USER': os.environ.get('DB_USER'),
+    #     'PASSWORD': os.environ.get('DB_PASSWORD'),
+    #     'HOST': os.environ.get('DB_HOST'),
+    #     'PORT': os.environ.get('DB_PORT'),
         # 'OPTIONS': {
         #     'sslmode': 'disable',
         #     'options': '--cluster={routing-id}',
