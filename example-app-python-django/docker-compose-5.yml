@@ -1,0 +1,13 @@
+services:
+  webb:
+    build: .
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      - DB_PORT=26258
+      - DB_NAME=defaultdb
+      - DB_USER=root
+      - DB_PASSWORD=
+      - DB_HOST=host.docker.internal
+    ports:
+      - '8001:8080'

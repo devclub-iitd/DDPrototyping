@@ -1,0 +1,21 @@
+services:
+  roach1:
+    container_name: roach1
+    hostname: roach1
+    image: cockroachdb/cockroach:v22.2.2
+    networks:
+      roachnet:
+        ipv4_address: "172.16.238.9"
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    command: start --insecure --advertise-host=172.16.238.9 --join=172.16.238.9,172.16.238.10,172.16.238.11
+    volumes:
+      - ~/cockroach-data/roach1:/cockroach/cockroach-data
+
+networks:
+  roachnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "172.16.238.0/24"
